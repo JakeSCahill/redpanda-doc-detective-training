@@ -1,0 +1,14 @@
+{
+  "name": "redpanda-doc-detective-training",
+  "version": "1.0.0",
+  "description": "Examples of running automated tests on Redpanda using Doc Detective.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JakeSCahill",
+  "license": "ISC",
+  "dependencies": {
+    "doc-detective": "^2.19.0"
+  }
+}

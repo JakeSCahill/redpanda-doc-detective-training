@@ -1,0 +1,41 @@
+= Create a Topic
+:description: Learn how to create a topic for a Redpanda Cloud cluster.
+:page-aliases: cloud:create-topic.adoc
+
+// ========================AUTOMATED TESTS===================================
+// The comments in this file are used to run automated tests of the documented steps. Tests are run using GitHub Actions on each pull request that changes this file in the upstream repository. For more details about the testing tool we use, see https://doc-detective.com/.
+
+// (test start {"id": "create-topic", "description": "Create a topic in Redpanda Serverless Standard"})
+
+After creating a cluster, you can create a topic for that cluster. Topic properties are populated from information stored in the broker. For Dedicated and BYOC clusters, you can optionally overwrite the default settings.
+
+// (step {"action":"goto", "url": "https://cloud.redpanda.com"})
+
+// (step {"action":"find", "selector": "[data-testid='docs-test-cluster-link']", "click": true})
+// (step {"action":"wait", "duration": 10000})
+
+// (step {"action":"find", "selector": "[data-testid='nav-link-Topics']", "click": true, "matchText": "Topics"})
+// (step {"action":"wait", "duration": 10000})
+
+// (step {"action":"find", "selector": "[data-testid='create-topic-button']", "click": true, "matchText": "Create topic"})
+// (step {"action":"wait", "duration": 10000})
+
+[cols="2,2a"]
+|===
+| Property | Description
+
+| *Partitions*
+| The number of partitions for the topic.
+
+| *Replication factor*
+| The number of partition replicas for the topic. Redpanda Cloud requires a minimum of 3 topic replicas. If a topic is created with a replication factor of 1, Redpanda resets the replication factor to 3.
+
+| *Cleanup policy*
+| The policy that determines how to clean up old log segments. The default is *delete*.
+
+| *Retention time*
+| The maximum length of time to keep messages in a topic. The default is *7 days*.
+
+| *Retention size*
+| The maximum size of each partition. If a partition reaches this size and more messages are added, the oldest messages are deleted. The default is *infinite*.
+|===

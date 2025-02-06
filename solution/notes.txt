@@ -1,0 +1,38 @@
+
+cd solution && npx doc-detective runTests --input create-topic.adoc
+
+Selecting elements
+
+Teach group how to select elements using data-testid attributes.
+Teach them about using waits for when the page takes a while to load.
+
+Defining a setup test
+
+It's fair to say that most test for Cloud docs will require a login. And we'll only want to do that once. So we can define login as a setup test so that DD runs it first before any other test.
+
+Dealing with missing test IDs
+
+Notice how the config items in the UI do not have test IDs. We could have checked these labels, or even stored them in environment variables to reference the correct labels directly. But the current selectors are random and may change each time you log into Cloud, so they are not reliable selectors. Sometimes DD may find them, other times it may not.
+
+Also, notice how our doc currently doesn't mention that Serverless clusters can edit these configs. If we had a test to check this modal, we could determine exactly what each cluster type is able to edit.
+
+Try to input a retention time of 5 minutes. See the error? You could say that the UI shouldn't allow that input. But let's say the doc mentions this 24h restriction. What if that changes? We'll want to check that the error message contains that exact restriction, if it doesn't it's a cue that something changed.
+
+We can use a matchText with a regular expression to test that.
+
+Maybe we want a screenshot as an example of that error?
+
+Screenshots
+
+Play with focusing on specific elements in screenshots.
+Joyce wants consistent screenshot sizes.
+
+Cleanup
+
+Teach them about cleaning up the environment. Deleting any resources we created (apart from our default test cluster).
+
+Questions
+
+Discuss how often Cloud gets updated and whether our tests will always have access to the latest UI.
+
+How often should we run the tests? Should it be triggered by new releases of Cloud? Should it be triggered when Cloud is testing a staging environment?

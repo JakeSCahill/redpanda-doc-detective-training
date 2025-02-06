@@ -1,0 +1,6 @@
+node_modules/
+.env
+testResults-*.json
+*.gif
+*.png
+setup-tests/

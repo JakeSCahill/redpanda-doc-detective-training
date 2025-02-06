@@ -18,11 +18,11 @@ In this workshop, you'll write tests using Doc Detective. These tests simulate r
 
 Tests use a JSON format where each test is a series of steps. Each step defines an action, such as:
 
-- setVariables: Loads environment variables for future test steps to use.
-- goTo: Navigates to a specific URL.
-- find: Locates elements on the page and optionally clicks them.
-- typeKeys: Simulates typing (including special keys like $ENTER$).
-- wait: Pauses test execution, for example to wait for a page to finish loading.
+- `setVariables`: Loads environment variables for future test steps to use.
+- `goTo`: Navigates to a specific URL.
+- `find`: Locates elements on the page and optionally clicks them.
+- `typeKeys`: Simulates typing (including special keys like `$ENTER$`).
+- `wait`: Pauses test execution, for example to wait for a page to finish loading.
 
 ## Agenda
 

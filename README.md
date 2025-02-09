@@ -1,6 +1,6 @@
 # Doc Detective Workshop
 
-Welcome to the **Doc Detective Workshop**! This repository is a sandbox for our team to get hands-on experience writing automated tests for our Redpanda docs using [Doc Detective](https://example.com/doc-detective-docs). The goal here is to practice writing tests and learn how to simulate user interactions in our docs. At the end of this workshop, we'll have our complete Serverless quickstart set up with automated testing.
+Welcome to the **Doc Detective Workshop**! This repository is a sandbox for our team to get hands-on experience writing automated tests for our Redpanda docs using [Doc Detective](https://example.com/doc-detective-docs). The goal here is to practice writing tests and learn how to simulate user interactions in our docs. At the end of this workshop, we'll have our guide for creating topics in Cloud set up with automated testing.
 
 ## Introduction
 
@@ -23,6 +23,25 @@ Tests use a JSON format where each test is a series of steps. Each step defines 
 - `find`: Locates elements on the page and optionally clicks them.
 - `typeKeys`: Simulates typing (including special keys like `$ENTER$`).
 - `wait`: Pauses test execution, for example to wait for a page to finish loading.
+
+Each action has properties associated with it. For example the `find` action has a required `selector` property that tells Doc Detective which element on the page it needs to find for the step to pass. The `selector` property takes CSS selectors. For example, this selector tells Doc Detective to find an element with the `title` attribute called `Search`.
+
+```json
+{
+  "action": "find",
+  "selector": "[title=Search]"
+}
+```
+
+If you want to make sure that the label on an element hasn't changed, you can ask Doc Detective to check the label text. For example, to ask Doc Detective to pass only if the text inside the element says 'Search':
+
+```json
+{
+  "action": "find",
+  "selector": "[title=Search]",
+  "matchText": "Search"
+}
+```
 
 ## Agenda
 
@@ -88,15 +107,16 @@ doc-detective-test-practice/
 
 ## Additional resources
 
-- Doc Detective docs
-- Doc Detective GitHub repo
-- Doc Detective GitHub Action repo
-- Internal wiki on doc testing
+- [Doc Detective docs](https://doc-detective.com/)
+- [Doc Detective GitHub repo](https://github.com/doc-detective/doc-detective)
+- [Doc Detective GitHub Action repo](https://github.com/doc-detective/github-action)
+- [Internal wiki on doc testing](https://redpandadata.atlassian.net/wiki/spaces/DOC/pages/1031503969/Docs+as+Tests+How+we+test+our+docs)
 
 ## Contribute
 
 This workshop is all about learning and experimentation. If you create new tests or come up with ideas to improve the testing process:
 
-1. Fork the repository: Create a branch for your test or improvement.
-1. Submit a pull request: Share your changes with the team.
-1. Provide feedback: Use the **Issues** tab to suggest improvements or ask questions.
+1. Fork the repository.
+1. Create a branch for your test or improvement.
+1. Submit a pull request to share your changes with the team.
+1. Provide feedback using the **Issues** tab. You can suggest improvements or ask questions.

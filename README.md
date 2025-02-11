@@ -16,15 +16,15 @@ In this workshop, you'll write tests using Doc Detective. These tests simulate r
 
 ## How tests work
 
-Tests use a JSON format where each test is a series of steps. Each step defines an action, such as:
+Tests use a JSON format, and each test is a series of steps. Each step defines an action, such as:
 
-- `setVariables`: Loads environment variables for future test steps to use.
+- `setVariables`: Loads environment variables for future test steps.
 - `goTo`: Navigates to a specific URL.
 - `find`: Locates elements on the page and optionally clicks them.
 - `typeKeys`: Simulates typing (including special keys like `$ENTER$`).
-- `wait`: Pauses test execution, for example to wait for a page to finish loading.
+- `wait`: Pauses test execution, such as waiting for a page to finish loading.
 
-Each action has properties associated with it. For example the `find` action has a required `selector` property that tells Doc Detective which element on the page it needs to find for the step to pass. The `selector` property takes CSS selectors. For example, this selector tells Doc Detective to find an element with the `title` attribute called `Search`.
+Each action has properties associated with it. For example, the `find` action has a required `selector` property that tells Doc Detective which element on the page it needs to find for the step to pass. The `selector` property takes CSS selectors. For example, this selector tells Doc Detective to find an element with the `title` attribute called `Search`.
 
 ```json
 {
@@ -33,7 +33,7 @@ Each action has properties associated with it. For example the `find` action has
 }
 ```
 
-If you want to make sure that the label on an element hasn't changed, you can ask Doc Detective to check the label text. For example, to ask Doc Detective to pass only if the text inside the element says 'Search':
+If you want to ensure the label on an element hasn't changed, you can ask Doc Detective to check the label text. For example, to ask Doc Detective to pass only if the text inside the element says 'Search':
 
 ```json
 {
@@ -42,6 +42,17 @@ If you want to make sure that the label on an element hasn't changed, you can as
   "matchText": "Search"
 }
 ```
+
+## Run tests
+
+To run a test or a series of tests, you use the `npx doc-detective runTests` command. This command expects a directory or a file that contains one or more tests.
+
+```
+npx doc-detective runTests --input intro.json -c challenge/.doc-detective.json
+```
+
+- `--input intro.json`: Runs the test in the `input.json` file.
+- `-c challenge/.doc-detective.json`: Tells Doc Detective to use the configuration file in the `challenge/` directory.
 
 ## Agenda
 

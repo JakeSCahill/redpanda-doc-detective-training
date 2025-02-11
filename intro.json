@@ -10,7 +10,20 @@
         {
           "action": "find",
           "selector": "[title=Search]",
+          "typeKeys": "Hello, Google",
           "click": true
+        },
+        {
+          "action": "saveScreenshot",
+          "path": "search.png"
+        },
+        {
+          "action": "typeKeys",
+          "keys": ["$ENTER$"]
+        },
+        {
+          "action": "saveScreenshot",
+          "path": "results.png"
         }
       ]
     }

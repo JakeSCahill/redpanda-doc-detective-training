@@ -1,0 +1,153 @@
+{
+  "tests": [
+    {
+      "steps": [
+        {
+          "action": "setVariables",
+          "path": "../.env"
+        },
+        {
+          "action": "goTo",
+          "url": "https://cloud.redpanda.com"
+        },
+        {
+          "action": "find",
+          "selector": "[name=username]",
+          "timeout": 20000,
+          "click": true
+        },
+        {
+          "action": "typeKeys",
+          "keys": ["jake@redpanda.com"]
+        },
+        {
+          "action": "find",
+          "selector": "[type=submit]",
+          "timeout": 50000,
+          "click": true
+        },
+        {
+          "action": "wait",
+          "duration": 20000
+        },
+        {
+          "action": "find",
+          "selector": "[data-testid=connection-Username-Password-Authentication-button]",
+          "timeout": 30000,
+          "click": true
+        },
+        {
+          "action": "find",
+          "selector": "[type=password]",
+          "timeout": 50000,
+          "click": true
+        },
+        {
+          "action": "typeKeys",
+          "keys": ["$PASSWORD"]
+        },
+        {
+          "action": "find",
+          "selector": "[type=submit]",
+          "timeout": 50000,
+          "click": true
+        },
+        {
+          "action": "wait",
+          "duration": 20000
+        },
+        {
+          "action":"find",
+          "selector": "[data-testid='modal-close-button']",
+          "click": true,
+          "timeout": 20000
+        },
+        {
+          "action": "wait",
+          "duration": 20000
+        },
+        {
+          "action": "saveScreenshot",
+          "path": "login.png",
+          "directory": "screenshots",
+          "overwrite": true
+        },
+        {
+          "action": "find",
+          "selector": "[data-testid='docs-test-cluster-link']",
+          "click": true
+        },
+        {
+          "action": "wait",
+          "duration": 10000
+        },
+        {
+          "action": "find",
+          "selector": "[data-testid='nav-link-Topics']",
+          "click": true,
+          "matchText": "Topics",
+          "timeout": 20000
+        },
+        {
+          "action": "wait",
+          "duration": 10000
+        },
+        {
+          "action": "find",
+          "selector": "[data-testid='create-topic-button']",
+          "click": true,
+          "matchText": "Create topic",
+          "timeout": 20000
+        },
+        {
+          "action": "wait",
+          "duration": 10000
+        },
+        {
+          "action": "find",
+          "selector": "[data-testid='topic-name']",
+          "click": true,
+          "timeout": 20000
+        },
+        {
+          "action": "wait",
+          "duration": 10000
+        },
+        {
+          "action": "typeKeys",
+          "keys": ["test-topic", "$ENTER$"]
+        },
+        {
+          "action": "wait",
+          "duration": 10000
+        },
+        {
+          "action": "find",
+          "selector": "[data-testid='onOk-button']",
+          "click": true
+        },
+        {
+          "action": "wait",
+          "duration": 10000
+        },
+        {
+          "action": "find",
+          "selector": "[data-testid='onOk-button']",
+          "click": true,
+          "timeout": 20000
+        },
+        {
+          "action": "wait",
+          "duration": 10000
+        },
+        {
+          "action": "saveScreenshot",
+          "path": "topic.png",
+          "directory": "screenshots",
+          "maxVariation": 10,
+          "overwrite": "byVariation"
+        }
+      ]
+    }
+  ]
+}

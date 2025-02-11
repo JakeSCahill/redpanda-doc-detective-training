@@ -1,21 +1,19 @@
 {
   "logLevel": "warning",
   "runTests": {
-    "setup": "cloud-login.json",
     "contexts": [
       {
         "app": {
           "name": "firefox",
           "options": {
             "viewport_width": 1366,
-            "viewport_height": 600,
+            "viewport_height": 700,
             "headless": true
           }
         },
         "platforms": [
           "linux",
-          "mac",
-          "windows"
+          "mac"
         ]
       }
     ]

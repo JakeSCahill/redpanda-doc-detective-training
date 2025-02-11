@@ -13,6 +13,7 @@
         {
           "action": "find",
           "selector": "[name=username]",
+          "timeout": 20000,
           "click": true
         },
         {
@@ -20,16 +21,25 @@
           "keys": ["jake@redpanda.com", "$ENTER$"]
         },
         {
-          "action": "wait"
+          "action": "find",
+          "selector": "[type=submit]",
+          "timeout": 50000,
+          "click": true
+        },
+        {
+          "action": "wait",
+          "duration": 20000
         },
         {
           "action": "find",
-          "selector": "[data-provider=Username-Password-Authentication]",
+          "selector": "[data-testid=connection-Username-Password-Authentication-button]",
+          "timeout": 20000,
           "click": true
         },
         {
           "action": "find",
           "selector": "[type=password]",
+          "timeout": 50000,
           "click": true
         },
         {
@@ -37,8 +47,14 @@
           "keys": ["$PASSWORD", "$ENTER$"]
         },
         {
+          "action": "find",
+          "selector": "[type=submit]",
+          "timeout": 50000,
+          "click": true
+        },
+        {
           "action": "wait",
-          "duration": 10000
+          "duration": 20000
         },
         {
           "action": "saveScreenshot",
